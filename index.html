@@ -7,18 +7,20 @@
   <title>Document</title>
 </head>
 <body>
-  <span></span>
-  <button id="btn">Click me</button>
+  <div id="root"></div>
 </body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <script>
-  let counter = 0;
-  const button = document.getElementById('btn');
-  const span = document.querySelector('span');
-
-  function Handleclick() {
-    counter += 1;
-    span.innerText = `Total clicks: ${counter}`;
-  }
-  button.addEventListener('click', Handleclick);
+  const root = document.getElementById("root");
+  const h3 = React.createElement("h3", {
+    onmouseenter: () =>  console.log("mouse enter")
+  }, "Hello I'm a span");
+  const btn = React.createElement("button", {
+    onclick: () => 
+      consol.log('gi')
+  }, "Click me");
+  const container = React.createElement("div", null, [h3, btn]);
+  ReactDOM.render(container, root);
 </script>
 </html>
